@@ -1,0 +1,23 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "srgb:0.120,0.120,0.120,1.000",
+      "srgb:0.060,0.060,0.060,1.000"
+    ],
+    "orientation" : {
+      "start" : { "x" : 0.5, "y" : 0 },
+      "stop" : { "x" : 0.5, "y" : 1 }
+    }
+  },
+  "groups" : [
+    {
+      "layers" : [
+        { "glass" : false, "image-name" : "glyph.png", "name" : "glyph" }
+      ],
+      "specular" : false
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : ["macOS"]
+  }
+}
