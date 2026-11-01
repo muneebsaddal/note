@@ -41,7 +41,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.target = self
         statusItem.button?.action = #selector(toggle)
-        showPeek(of: Note.load())
+        statusItem.button?.image = NSImage(systemSymbolName: "note.text", accessibilityDescription: "note")
 
         registerHotKey()
         show()
@@ -52,14 +52,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         show()
         return true
-    }
-
-    /// Start of the note in the menu bar, or the icon when there is nothing to show.
-    func showPeek(of text: String) {
-        let peek = Note.peek(text)
-        statusItem.button?.title = peek
-        statusItem.button?.image = peek.isEmpty
-            ? NSImage(systemSymbolName: "square.and.pencil", accessibilityDescription: "note") : nil
     }
 
     @objc func toggle() {

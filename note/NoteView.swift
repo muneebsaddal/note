@@ -38,7 +38,6 @@ struct NoteView: View {
         .onAppear { focused = true }
         .onExitCommand { NSApp.hide(nil) }
         .onChange(of: text) {
-            AppDelegate.shared.showPeek(of: text)
             do {
                 try Note.save(text)
                 saveFailed = false
