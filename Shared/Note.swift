@@ -7,15 +7,6 @@ enum Note {
     static var url = URL(fileURLWithPath: String(cString: getpwuid(getuid()).pointee.pw_dir))
         .appendingPathComponent("Library/Application Support/note/note.txt")
 
-    /// First line with text, cut to fit the menu bar. Empty when the note is blank.
-    static func peek(_ text: String, limit: Int = 25) -> String {
-        let line = text.split(whereSeparator: \.isNewline)
-            .map { $0.trimmingCharacters(in: .whitespaces) }
-            .first { !$0.isEmpty } ?? ""
-        guard line.count > limit else { return line }
-        return line.prefix(limit).trimmingCharacters(in: .whitespaces) + "…"
-    }
-
     static func load() -> String {
         (try? String(contentsOf: url, encoding: .utf8)) ?? ""
     }
